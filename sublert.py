@@ -311,7 +311,7 @@ def dns_resolution(new_subdomains): #Perform DNS resolution on retrieved subdoma
         dns_results[domain] = {}
         try:
             for qtype in ['A','CNAME']:
-                dns_output = dns.resolver.query(domain,qtype, raise_on_no_answer = False)
+                dns_output = dns.resolver.resolve(domain,qtype, raise_on_no_answer = False)
                 if dns_output.rrset is None:
                     pass
                 elif dns_output.rdtype == 1:
